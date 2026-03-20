@@ -1,4 +1,4 @@
-import { Divider } from "@mui/material";
+import { Divider, Stack } from "@mui/material";
 import EventHeader from "./EventHeader";
 import ChampionDisplay from "./ChampionDisplay";
 import EventActions from "./EventActions";
@@ -9,6 +9,7 @@ import type {
 } from "../../../hooks/useLatestEventStandings";
 import formatEventDate from "../../../util/formatEventDate";
 import { elementThemes } from "./elementTheme";
+import EventFooter from "./EventFooter";
 
 type Props = {
   themeElement: string;
@@ -26,7 +27,7 @@ const LatestChampionCard = ({
   const bestOfLabel = eventData.swiss_match_config === "bo1" ? "Bo1" : "Bo3";
   const roundsLabel = `${eventData.swiss_rounds} rounds`;
   return (
-    <>
+    <Stack spacing={0.5}>
       <EventHeader
         date={eventDate.date}
         bestOfLabel={bestOfLabel}
@@ -45,12 +46,15 @@ const LatestChampionCard = ({
         championElement={eventWinner.champion_element}
       />
       <Divider sx={{ borderColor: theme.dividerColor }} />
-      <EventActions
-        url={eventData.url}
-        buttonColor={theme.primary}
-        buttonText={theme.buttonTextColor}
+      <EventFooter
+        wins={eventWinner.wins}
+        losses={eventWinner.losses}
+        stalemates={eventWinner.stalemates}
+        score={eventWinner.score}
+        byes={eventWinner.byes}
+        textColor={theme.primary}
       />
-    </>
+    </Stack>
   );
 };
 

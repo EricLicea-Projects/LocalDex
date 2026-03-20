@@ -23,7 +23,7 @@ const HomepageTile = ({ children, themeElement }: Props) => {
         backgroundPosition: "center",
         overflow: "hidden",
         width: { xs: "328px", sm: "360px" },
-        maxHeight: "400",
+        height: "400",
         flexShrink: 0,
       }}
     >

@@ -27,8 +27,8 @@ const EventHeader = ({
       }}
     >
       <Typography
-        variant="caption"
-        sx={{ fontWeight: 700, letterSpacing: 1, color: textColor }}
+        fontSize="1rem"
+        sx={{ fontWeight: 800, letterSpacing: 1, color: textColor }}
       >
         {date.toUpperCase()}
       </Typography>
@@ -38,8 +38,8 @@ const EventHeader = ({
           size="small"
           variant="outlined"
           sx={{
-            height: 20,
-            fontSize: "0.65rem",
+            height: 32,
+            fontSize: "0.75rem",
             color: textColor,
             borderColor: chipColor,
           }}
@@ -49,8 +49,8 @@ const EventHeader = ({
           size="small"
           variant="outlined"
           sx={{
-            height: 20,
-            fontSize: "0.65rem",
+            height: 32,
+            fontSize: "0.75rem",
             color: textColor,
             borderColor: chipColor,
           }}

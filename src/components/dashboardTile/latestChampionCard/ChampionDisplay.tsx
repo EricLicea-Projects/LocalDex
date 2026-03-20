@@ -1,4 +1,4 @@
-import { Box, Avatar, Typography, CardContent } from "@mui/material";
+import { Box, Avatar, Typography, CardContent, Stack } from "@mui/material";
 import getChampionImagePath from "../../../util/getChampionImagePath";
 
 type Props = {
@@ -35,16 +35,35 @@ const ChampionDisplay = ({
           src={getChampionImagePath(champion)}
           alt="Champion Character"
           sx={{
-            width: 80,
-            height: 80,
+            width: 88,
+            height: 88,
             boxShadow: glowColor,
           }}
         />
       </Box>
+      <Stack spacing={1} direction="row" justifyContent="center">
+        <Avatar
+          src={`/element/${mainElement.toLowerCase()}.png`}
+          sx={{
+            width: 32,
+            height: 32,
+          }}
+          variant="rounded"
+        />
+        <Avatar
+          src={`/element/${championElement.toLowerCase()}.png`}
+          sx={{
+            width: 32,
+            height: 32,
+          }}
+          variant="rounded"
+        />
+      </Stack>
 
       <Typography
         variant="overline"
         fontWeight="bold"
+        fontSize="0.75rem"
         sx={{ color: textColor }}
       >
         {day} Champion
