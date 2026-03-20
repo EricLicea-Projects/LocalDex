@@ -14,7 +14,7 @@ const FloatingPlacementBadge = ({ placement }: Props) => {
         left: 10,
         px: 1.5,
         py: 0.5,
-        bgcolor: "#1e88e5",
+        bgcolor: "secondary.main",
         borderRadius: 4,
         fontSize: "0.85rem",
         alignItems: "center",
@@ -24,11 +24,10 @@ const FloatingPlacementBadge = ({ placement }: Props) => {
     >
       <Typography
         variant="caption"
-        sx={{ fontWeight: 800, fontSize: "0.6rem", opacity: 0.8 }}
+        sx={{ fontWeight: 800, fontSize: "0.65rem", color: "white" }}
       >
-        RANK
+        RANK {placement}
       </Typography>
-      {placement}
     </Box>
   );
 };

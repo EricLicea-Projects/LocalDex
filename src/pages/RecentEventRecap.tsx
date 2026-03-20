@@ -59,7 +59,7 @@ const RecentEventRecap = () => {
         spacing={{ xs: 0, sm: 0, md: 3 }}
         alignContent="flex-start"
       >
-        {standings.map((player) => (
+        {standings.slice(1).map((player) => (
           <Grid
             size={{ xs: 12, sm: 6, lg: 4 }}
             key={player.player_id}
