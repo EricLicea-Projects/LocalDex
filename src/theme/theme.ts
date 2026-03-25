@@ -31,7 +31,7 @@ export const theme = createTheme({
       main: "hsl(109 33% 64%)",
     },
     error: {
-      main: "hsl(9 26% 64%)",
+      main: "hsl(11 40% 64%)",
     },
     warning: {
       main: "hsl(52 19% 57%)",

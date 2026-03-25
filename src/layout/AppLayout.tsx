@@ -7,7 +7,11 @@ const AppLayout = () => {
   return (
     <Stack width="100vw" height="100vh">
       <NavBar />
-      <Box display="flex" flex={1}>
+      <Box
+        display="flex"
+        flex={1}
+        justifyContent={{ xs: "center", xl: "flex-start" }}
+      >
         <SideBar />
         <Outlet />
       </Box>
