@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import AppLayout from "../layout/AppLayout";
 import RecentEventRecap from "../pages/RecentEventRecap";
-import PlayerProfile from "../pages/Leaderboard";
+import Leaderboard from "../pages/Leaderboard";
+import PlayerProfile from "../pages/PlayerProfile";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: RecentEventRecap,
+      },
+      {
+        path: "leaderboard",
+        Component: Leaderboard,
       },
       {
         path: "player-profile",

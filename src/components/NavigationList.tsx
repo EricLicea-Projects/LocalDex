@@ -23,6 +23,11 @@ const navItems = [
     to: "/player-profile",
     icon: <PeopleAlt />,
   },
+  {
+    label: "Leaderboard",
+    to: "/leaderboard",
+    icon: <PeopleAlt />,
+  },
 ];
 
 const NavigationList = ({ onNavigate }: Props) => {
