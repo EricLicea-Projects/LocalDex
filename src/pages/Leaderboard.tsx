@@ -3,7 +3,7 @@ import LocalLeaderboardTable from "../components/localLeaderboardTable/LocalLead
 import useGetPlayerStatsTable from "../hooks/useGetPlayerStatsTable";
 import LocalLeaderBoardMobileCard from "../components/localLeaderboardTable/LocalLeaderBoardMobileCard";
 
-const PlayerProfile = () => {
+const Leaderboard = () => {
   const { data } = useGetPlayerStatsTable();
 
   if (!data) return <Box>No Data Found.</Box>;
@@ -24,4 +24,4 @@ const PlayerProfile = () => {
   );
 };
 
-export default PlayerProfile;
+export default Leaderboard;

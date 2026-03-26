@@ -1,7 +1,6 @@
 import { Divider, Stack } from "@mui/material";
 import EventHeader from "./EventHeader";
 import ChampionDisplay from "./ChampionDisplay";
-import EventActions from "./EventActions";
 import type { Element } from "./elementTheme";
 import type {
   EventSummary,
