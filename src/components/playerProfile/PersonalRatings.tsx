@@ -1,13 +1,12 @@
 import {
   Avatar,
   Box,
-  Card,
   CardContent,
-  CardHeader,
   Divider,
   Stack,
   Typography,
 } from "@mui/material";
+import PlayerProfileCard from "./PlayerProfileCard";
 
 // Hardcoded — swap with real data later
 const currentCP = 1800;
@@ -22,24 +21,8 @@ const AVATAR_SIZE = 36;
 
 const PersonalRatings = () => {
   return (
-    <Card
-      variant="outlined"
-      elevation={1}
-      sx={{ width: 472, border: "2px double", borderColor: "border.muted" }}
-    >
-      <CardHeader
-        title={
-          <Typography
-            variant="body1"
-            textAlign="center"
-            letterSpacing={1}
-            fontWeight={500}
-          >
-            Personal Ratings
-          </Typography>
-        }
-      />
-      <Divider variant="middle" sx={{ borderColor: "border.muted" }} />
+    <PlayerProfileCard side="left" header="Personal Ratings">
+      <Divider variant="middle" sx={{ borderColor: "border.muted" }} />{" "}
       <CardContent>
         <Stack spacing={1} alignItems={"center"}>
           <Stack spacing={2} direction="row" alignItems="center">
@@ -111,7 +94,7 @@ const PersonalRatings = () => {
           </Box>
         </Stack>
       </CardContent>
-    </Card>
+    </PlayerProfileCard>
   );
 };
 

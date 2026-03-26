@@ -6,7 +6,7 @@ const PlayerBanner = () => {
       elevation={3}
       sx={{
         height: 168,
-        width: 944,
+        width: "100%",
         borderRadius: 3,
         display: "flex",
         alignItems: "center",
