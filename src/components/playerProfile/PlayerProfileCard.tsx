@@ -1,5 +1,11 @@
 import type { ReactNode } from "react";
-import { Card, CardHeader, Divider, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  Typography,
+} from "@mui/material";
 
 type Props = {
   side: "left" | "right";
@@ -32,7 +38,7 @@ const PlayerProfileCard = ({ side, header, children }: Props) => {
         }
       />
       <Divider variant="middle" sx={{ borderColor: "border.muted" }} />
-      {children}
+      {children && <CardContent>{children}</CardContent>}
     </Card>
   );
 };
