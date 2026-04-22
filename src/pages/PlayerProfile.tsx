@@ -3,6 +3,7 @@ import PlayerBanner from "../components/playerProfile/PlayerBanner";
 import PersonalRatings from "../components/playerProfile/PersonalRatings";
 import ChampionMastery from "../components/playerProfile/ChampionMastery";
 import EventHistory from "../components/playerProfile/EventHistory";
+import AdvanceElementMastery from "../components/playerProfile/AdvanceElementMastery";
 
 const PlayerProfile = () => {
   return (
@@ -14,7 +15,10 @@ const PlayerProfile = () => {
             <PersonalRatings />
             <EventHistory />
           </Stack>
-          <ChampionMastery />
+          <Stack spacing={1} width="100%">
+            <ChampionMastery />
+            <AdvanceElementMastery />
+          </Stack>
         </Stack>
       </Stack>
     </Stack>
