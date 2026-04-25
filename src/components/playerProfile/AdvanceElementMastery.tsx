@@ -1,20 +1,19 @@
+import type { AdvanceElementUsage } from "../../hooks/useGetPlayerProfile";
 import type { ElementalTheme } from "../elementalBar/ElementalBarTheme";
 import AdvanceElementMasteryBar from "./AdvanceElementMasteryBar";
 import PlayerProfileCard from "./PlayerProfileCard";
 
-const playerData = [
-  { element: "astra", value: 50 },
-  { element: "exia", value: 75 },
-  { element: "arcane", value: 20 },
-];
+type Props = {
+  advElementList: AdvanceElementUsage[];
+};
 
-const AdvanceElementMastery = () => {
+const AdvanceElementMastery = ({ advElementList }: Props) => {
   return (
     <PlayerProfileCard side="right" header="Advance Element Mastery">
-      {playerData.map((player) => (
+      {advElementList.map((element) => (
         <AdvanceElementMasteryBar
-          element={player.element as ElementalTheme}
-          value={player.value}
+          element={element.element_name.toLocaleLowerCase() as ElementalTheme}
+          value={element.times_played * 10}
         />
       ))}
     </PlayerProfileCard>

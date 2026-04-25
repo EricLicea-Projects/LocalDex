@@ -45,7 +45,7 @@ const RecentEventRecap = () => {
   const elementMetaTile = (
     <HomepageTile>
       <Box py={1} display="flex" justifyContent="center" alignItems="center">
-        <Typography variant="h6">PTM Season Element Meta</Typography>
+        <Typography variant="h6">RDO Season Element Meta</Typography>
       </Box>
 
       <Divider variant="middle" />

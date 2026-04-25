@@ -1,18 +1,18 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  Chip,
-  Divider,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Card, Chip, Stack, Typography } from "@mui/material";
 import getChampionImagePath from "../../util/getChampionImagePath";
 import ElementStack from "../playerstandingcard/ElementStack";
 import PlayerAndChampionBlock from "../playerstandingcard/PlayerAndChampionBlock";
-import type { Standing } from "../../hooks/useLatestEventStandings";
+import type { EventHistory } from "../../hooks/useGetPlayerProfile";
+import formatEventDate from "../../util/formatEventDate";
 
-const EventHistoryCard = ({ player }: { player: Standing }) => {
+type Props = {
+  event: EventHistory;
+  username: string;
+};
+
+const EventHistoryCard = ({ event, username }: Props) => {
+  const eventDate = formatEventDate(event.start_at);
+  console.log(eventDate);
   return (
     <Card
       elevation={3}
@@ -40,7 +40,7 @@ const EventHistoryCard = ({ player }: { player: Standing }) => {
         }}
       >
         <Chip
-          label={`Rank ${player.placement}`}
+          label={`Rank ${event.placement}`}
           size="small"
           sx={{
             fontWeight: 700,
@@ -51,24 +51,24 @@ const EventHistoryCard = ({ player }: { player: Standing }) => {
         />
 
         <Typography variant="caption" fontWeight={600}>
-          2W - 1L - 0D
+          {`${event.wins}W - ${event.losses}L - ${event.stalemates}D`}
         </Typography>
         <Typography variant="caption" fontWeight={600}>
-          March 3, 2026
+          {eventDate.date}
         </Typography>
       </Stack>
       <Box sx={{ display: "flex", alignItems: "center", p: 2, pt: 3, gap: 2 }}>
         <Avatar
-          src={getChampionImagePath(player.champion_name)}
+          src={getChampionImagePath(event.champion_name)}
           sx={{ width: 64, height: 64 }}
         />
         <ElementStack
-          mainElement={player.main_element}
-          championElement={player.champion_element}
+          mainElement={event.main_element}
+          championElement={event.champion_element}
         />
         <PlayerAndChampionBlock
-          username={player.username}
-          championName={player.champion_name}
+          username={username}
+          championName={event.champion_name}
         />
       </Box>
     </Card>

@@ -1,34 +1,60 @@
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import PlayerProfileCard from "./PlayerProfileCard";
+import { RANK_LADDER } from "./rankLadder";
+import { getRankProgress } from "./getRankProgress";
 
-// Hardcoded — swap with real data later
-const currentCP = 1800;
-const currentRankLabel = "Gold";
-const nextRankLabel = "Platinum";
-const currentRankMin = 1500;
-const nextRankMin = 1900;
-const progressPct =
-  ((currentCP - currentRankMin) / (nextRankMin - currentRankMin)) * 100;
+type Props = {
+  currentCP: number;
+  playerRank: number;
+  playerWinRate: number;
+  playerWins: number;
+  playerLosses: number;
+};
 
 const AVATAR_SIZE = 36;
 
-const PersonalRatings = () => {
+const PersonalRatings = ({
+  currentCP,
+  playerRank,
+  playerWinRate,
+  playerLosses,
+  playerWins,
+}: Props) => {
+  const {
+    currentRank,
+    nextRank,
+    currentRankMin,
+    nextRankMin,
+    progressPct,
+    isMaxRank,
+  } = getRankProgress(currentCP, RANK_LADDER);
+
+  const rightRank = nextRank ?? currentRank;
+
   return (
     <PlayerProfileCard side="left" header="Personal Ratings">
-      <Stack spacing={1} alignItems={"center"}>
+      <Stack spacing={1} alignItems="center">
         <Stack spacing={2} direction="row" alignItems="center">
-          <Avatar src="/rank/gold.png" sx={{ height: 152, width: 152 }} />
+          <Avatar
+            src={`/rank/${currentRank.key}.png`}
+            sx={{ height: 152, width: 152 }}
+          />
+
           <Stack>
-            <Typography variant="h6">Gold 1500 CP</Typography>
-            <Typography variant="body2">Rank 350</Typography>
-            <Typography variant="body2">Win Rate: 86%</Typography>
-            <Typography variant="body2">Wins: 142 - Losses: 23</Typography>
+            <Typography variant="h6">
+              {`${currentRank.label} ${currentCP.toLocaleString()} CP`}
+            </Typography>
+
+            <Typography variant="body2">{`Rank: ${playerRank}`}</Typography>
+            <Typography variant="body2">{`Win Rate: ${playerWinRate}%`}</Typography>
+            <Typography variant="body2">
+              {`Wins: ${playerWins} - Losses: ${playerLosses}`}
+            </Typography>
           </Stack>
         </Stack>
 
         {/* Rank progression */}
         <Box sx={{ position: "relative", width: "100%" }}>
-          {/* Bar: inset by half the avatar size so it connects both avatar centers */}
           <Box
             sx={{
               position: "absolute",
@@ -54,16 +80,17 @@ const PersonalRatings = () => {
             />
           </Box>
 
-          {/* Rank emblems row */}
           <Stack direction="row" justifyContent="space-between">
             <Stack alignItems="center" spacing={0.5}>
               <Avatar
-                src="/rank/gold.png"
+                src={`/rank/${currentRank.key}.png`}
                 sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
               />
+
               <Typography variant="caption" color="text.secondary">
-                {currentRankLabel}
+                {currentRank.label}
               </Typography>
+
               <Typography variant="caption" color="text.secondary">
                 {currentRankMin.toLocaleString()} CP
               </Typography>
@@ -71,14 +98,18 @@ const PersonalRatings = () => {
 
             <Stack alignItems="center" spacing={0.5}>
               <Avatar
-                src="/rank/platinum.png"
+                src={`/rank/${rightRank.key}.png`}
                 sx={{ width: AVATAR_SIZE, height: AVATAR_SIZE }}
               />
+
               <Typography variant="caption" color="text.secondary">
-                {nextRankLabel}
+                {isMaxRank ? "Max Rank" : rightRank.label}
               </Typography>
+
               <Typography variant="caption" color="text.secondary">
-                {nextRankMin.toLocaleString()} CP
+                {nextRankMin
+                  ? `${nextRankMin.toLocaleString()} CP`
+                  : `${currentCP.toLocaleString()} CP`}
               </Typography>
             </Stack>
           </Stack>

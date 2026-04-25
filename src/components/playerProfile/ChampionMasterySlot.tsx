@@ -1,22 +1,33 @@
 import { Avatar, Box, Stack, Tooltip, Typography } from "@mui/material";
+import getChampionImagePath from "../../util/getChampionImagePath";
 
-const winRate = 0.36;
-const totalGames = 30;
+type Props = {
+  championName: string;
+  winRate: number;
+  wins: number;
+  losses: number;
+};
+
 const totalWins = 10;
 const totalLosses = 30;
 
-const ChampionMasterySlot = () => {
+const ChampionMasterySlot = ({
+  championName,
+  winRate,
+  wins,
+  losses,
+}: Props) => {
   return (
     <Stack direction="row" justifyContent="space-between">
       <Stack spacing={1} direction="row">
         <Avatar
-          src="/champion/zander-blinding-steel.png"
+          src={getChampionImagePath(championName)}
           sx={{ width: 48, height: 48 }}
         />
         <Stack>
-          <Typography fontWeight={700}>Zander, Blinding Steel</Typography>
+          <Typography fontWeight={700}>{championName}</Typography>
           <Typography variant="body2" sx={{ opacity: 0.7 }}>
-            Rank 1
+            {"Rank -"}
           </Typography>
         </Stack>
       </Stack>
@@ -27,10 +38,10 @@ const ChampionMasterySlot = () => {
           alignItems="center"
         >
           <Typography variant="body2" fontWeight={700}>
-            {(winRate * 100).toFixed(1)}%
+            {`${winRate}%`}
           </Typography>
           <Typography variant="caption" color="text.secondary">
-            {totalGames} games
+            {`${wins}W - ${losses}L`}
           </Typography>
         </Stack>
         <Tooltip
@@ -44,7 +55,7 @@ const ChampionMasterySlot = () => {
               width: "100%",
               borderRadius: 1,
               background: (theme) => {
-                const winPct = winRate * 100;
+                const winPct = winRate;
                 const green = theme.palette.success.main;
                 const red = theme.palette.error.main;
                 return `linear-gradient(90deg, ${green} 0%, ${green} ${winPct}%, ${red} ${winPct}%, ${red} 100%)`;

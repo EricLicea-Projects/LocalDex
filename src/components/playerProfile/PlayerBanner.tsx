@@ -1,6 +1,20 @@
 import { Avatar, Card, CardContent, Stack, Typography } from "@mui/material";
+import getChampionImagePath from "../../util/getChampionImagePath";
 
-const PlayerBanner = () => {
+type Props = {
+  playerId: number;
+  playerName: string;
+  mainChampion: string;
+  mainElement: string;
+};
+
+const PlayerBanner = ({
+  playerId,
+  playerName,
+  mainChampion,
+  mainElement,
+}: Props) => {
+  const championImg = getChampionImagePath(mainChampion);
   return (
     <Card
       elevation={3}
@@ -10,7 +24,7 @@ const PlayerBanner = () => {
         borderRadius: 3,
         display: "flex",
         alignItems: "center",
-        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("/champion/Spirit-of-Wind.png")`,
+        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("/champion/Spirit-of-${mainElement}.png")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         overflow: "hidden",
@@ -18,16 +32,13 @@ const PlayerBanner = () => {
     >
       <CardContent>
         <Stack spacing={2} direction="row">
-          <Avatar
-            src={"/champion/zander-blinding-steel.png"}
-            sx={{ height: 80, width: 80 }}
-          />
+          <Avatar src={championImg} sx={{ height: 80, width: 80 }} />
           <Stack justifyContent={"center"}>
             <Typography variant="h6" fontWeight={700}>
-              Snuggie #69420
+              {`${playerName} #${playerId}`}
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.7 }}>
-              Zander, Blinding Steel
+              {mainChampion}
             </Typography>
           </Stack>
         </Stack>
