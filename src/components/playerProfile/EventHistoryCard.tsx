@@ -7,12 +7,10 @@ import formatEventDate from "../../util/formatEventDate";
 
 type Props = {
   event: EventHistory;
-  username: string;
 };
 
-const EventHistoryCard = ({ event, username }: Props) => {
+const EventHistoryCard = ({ event }: Props) => {
   const eventDate = formatEventDate(event.start_at);
-  console.log(eventDate);
   return (
     <Card
       elevation={3}
@@ -21,7 +19,6 @@ const EventHistoryCard = ({ event, username }: Props) => {
         mb: 1.5,
         borderRadius: 4,
         background: "hsla(264, 31%, 11%, 0.6)",
-        display: "flex",
         transition: "transform 0.2s",
         "&:hover": {
           background: "hsla(264, 50%, 17%, 0.6)",
@@ -30,10 +27,10 @@ const EventHistoryCard = ({ event, username }: Props) => {
       }}
     >
       <Stack
+        direction="row"
         sx={{
           px: 2,
           pt: 1.5,
-          pb: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -51,13 +48,10 @@ const EventHistoryCard = ({ event, username }: Props) => {
         />
 
         <Typography variant="caption" fontWeight={600}>
-          {`${event.wins}W - ${event.losses}L - ${event.stalemates}D`}
-        </Typography>
-        <Typography variant="caption" fontWeight={600}>
           {eventDate.date}
         </Typography>
       </Stack>
-      <Box sx={{ display: "flex", alignItems: "center", p: 2, pt: 3, gap: 2 }}>
+      <Box sx={{ display: "flex", alignItems: "center", p: 2, gap: 1.5 }}>
         <Avatar
           src={getChampionImagePath(event.champion_name)}
           sx={{ width: 64, height: 64 }}
@@ -67,7 +61,9 @@ const EventHistoryCard = ({ event, username }: Props) => {
           championElement={event.champion_element}
         />
         <PlayerAndChampionBlock
-          username={username}
+          wins={event.wins}
+          losses={event.losses}
+          stalemates={event.stalemates}
           championName={event.champion_name}
         />
       </Box>

@@ -1,10 +1,10 @@
 import { Stack } from "@mui/material";
 import ChampionMasterySlot from "./ChampionMasterySlot";
 import PlayerProfileCard from "./PlayerProfileCard";
-import type { ChampionMastery } from "../../hooks/useGetPlayerProfile";
+import type { PlayerChampionMastery } from "../../hooks/useGetPlayerProfile";
 
 type Props = {
-  championList: ChampionMastery[];
+  championList: PlayerChampionMastery[];
 };
 
 const ChampionMastery = ({ championList }: Props) => {

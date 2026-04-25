@@ -3,7 +3,7 @@ import { apiClient } from "../api/client";
 
 const API_ROUTE = "api/localdex/v1/player-profile";
 
-export type EventHistory = {
+export type PlayerEventHistory = {
   event_id: number;
   start_at: string;
   placement: number;
@@ -20,7 +20,7 @@ export type AdvanceElementUsage = {
   times_played: number;
 };
 
-export type ChampionMastery = {
+export type PlayerChampionMastery = {
   champion_id: number;
   champion_name: string;
   events_played: number;
@@ -40,9 +40,9 @@ type PlayerProfileResponse = {
   total_games: number;
   win_rate: number;
   most_played_element: string;
-  champion_mastery: ChampionMastery[];
+  champion_mastery: PlayerChampionMastery[];
   advanced_element_usage: AdvanceElementUsage[];
-  event_history: EventHistory[];
+  event_history: PlayerEventHistory[];
 };
 
 const useGetPlayerProfile = () => {

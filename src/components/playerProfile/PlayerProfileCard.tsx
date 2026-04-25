@@ -13,13 +13,15 @@ type Props = {
   children: ReactNode;
 };
 
+//472
+
 const PlayerProfileCard = ({ side, header, children }: Props) => {
   const isLeft = side === "left";
   return (
     <Card
       variant="outlined"
       sx={{
-        width: isLeft ? 472 : "100%",
+        width: isLeft ? 344 : "100%",
         border: "2px double",
         borderColor: "border.muted",
         flexShrink: isLeft ? 0 : 1,

@@ -1,17 +1,16 @@
 import PlayerProfileCard from "./PlayerProfileCard";
 import EventHistoryCard from "./EventHistoryCard";
-import type { EventHistory } from "../../hooks/useGetPlayerProfile";
+import type { PlayerEventHistory } from "../../hooks/useGetPlayerProfile";
 
 type Props = {
-  username: string;
-  events: EventHistory[];
+  events: PlayerEventHistory[];
 };
 
-const EventHistory = ({ events, username }: Props) => {
+const EventHistory = ({ events }: Props) => {
   return (
     <PlayerProfileCard side="left" header="Event History">
       {events.map((event) => (
-        <EventHistoryCard username={username} event={event} />
+        <EventHistoryCard event={event} />
       ))}
     </PlayerProfileCard>
   );
