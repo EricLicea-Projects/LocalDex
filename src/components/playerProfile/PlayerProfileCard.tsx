@@ -21,7 +21,7 @@ const PlayerProfileCard = ({ side, header, children }: Props) => {
     <Card
       variant="outlined"
       sx={{
-        width: isLeft ? 344 : "100%",
+        width: isLeft ? { xs: 344, sm: 456 } : "100%",
         border: "2px double",
         borderColor: "border.muted",
         flexShrink: isLeft ? 0 : 1,

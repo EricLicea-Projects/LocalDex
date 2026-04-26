@@ -45,7 +45,7 @@ type PlayerProfileResponse = {
   event_history: PlayerEventHistory[];
 };
 
-const useGetPlayerProfile = () => {
+const useGetPlayerProfile = (playerId: string) => {
   const [data, setData] = useState<PlayerProfileResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,9 +55,12 @@ const useGetPlayerProfile = () => {
 
     const fetchPlayerProfile = async () => {
       try {
-        const response = await apiClient.get<PlayerProfileResponse>(API_ROUTE, {
-          signal: controller.signal,
-        });
+        const response = await apiClient.get<PlayerProfileResponse>(
+          `${API_ROUTE}/${playerId}`,
+          {
+            signal: controller.signal,
+          },
+        );
         setData(response.data);
       } catch (err) {
         if (err instanceof Error && err.name !== "AbortError") {
@@ -71,7 +74,7 @@ const useGetPlayerProfile = () => {
     fetchPlayerProfile();
 
     return () => controller.abort();
-  }, []);
+  }, [playerId]);
 
   return { data, loading, error };
 };

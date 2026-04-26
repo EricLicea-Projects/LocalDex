@@ -39,6 +39,7 @@ const PlayerStandingCard = ({ player }: { player: Standing }) => {
           championElement={player.champion_element}
         />
         <PlayerAndChampionBlock
+          playerId={player.player_id}
           username={player.username}
           championName={player.champion_name}
         />

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         Component: Leaderboard,
       },
       {
-        path: "player-profile",
+        path: "player-profile/:playerId",
         Component: PlayerProfile,
       },
     ],

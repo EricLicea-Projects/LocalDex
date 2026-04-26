@@ -1,12 +1,12 @@
 import { Avatar, Box, Card, Chip, Stack, Typography } from "@mui/material";
 import getChampionImagePath from "../../util/getChampionImagePath";
 import ElementStack from "../playerstandingcard/ElementStack";
-import PlayerAndChampionBlock from "../playerstandingcard/PlayerAndChampionBlock";
-import type { EventHistory } from "../../hooks/useGetPlayerProfile";
+import type { PlayerEventHistory } from "../../hooks/useGetPlayerProfile";
 import formatEventDate from "../../util/formatEventDate";
+import EventHistoryCardTextBlock from "./EventHistoryCardTextBlock";
 
 type Props = {
-  event: EventHistory;
+  event: PlayerEventHistory;
 };
 
 const EventHistoryCard = ({ event }: Props) => {
@@ -51,7 +51,14 @@ const EventHistoryCard = ({ event }: Props) => {
           {eventDate.date}
         </Typography>
       </Stack>
-      <Box sx={{ display: "flex", alignItems: "center", p: 2, gap: 1.5 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          p: 2,
+          gap: { xs: 1.5, sm: 2 },
+        }}
+      >
         <Avatar
           src={getChampionImagePath(event.champion_name)}
           sx={{ width: 64, height: 64 }}
@@ -60,7 +67,7 @@ const EventHistoryCard = ({ event }: Props) => {
           mainElement={event.main_element}
           championElement={event.champion_element}
         />
-        <PlayerAndChampionBlock
+        <EventHistoryCardTextBlock
           wins={event.wins}
           losses={event.losses}
           stalemates={event.stalemates}
