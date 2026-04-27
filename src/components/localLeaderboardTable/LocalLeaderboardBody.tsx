@@ -5,7 +5,9 @@ import {
   TableCell,
   TableRow,
   Typography,
+  Link as MuiLink,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router";
 import type { PlayerStats } from "../../hooks/useGetPlayerStatsTable";
 import getChampionImagePath from "../../util/getChampionImagePath";
 import LocalLeaderboardWinRate from "./LocalLeaderboardWinRate";
@@ -26,7 +28,7 @@ const LocalLeaderboardBody = ({ playerStats }: Props) => {
     >
       {playerStats.map((player, rank) => (
         <TableRow
-          key={player.username}
+          key={player.player_id}
           hover
           sx={{
             "&:nth-of-type(odd)": {
@@ -38,7 +40,17 @@ const LocalLeaderboardBody = ({ playerStats }: Props) => {
             <Typography fontWeight={700}>{rank + 1}</Typography>
           </TableCell>
           <TableCell align="center">
-            <Typography>{player.username}</Typography>
+            <MuiLink
+              component={RouterLink}
+              to={`/player-profile/${player.player_id}`}
+              underline="none"
+              sx={{
+                typography: "body1",
+                color: "inherit",
+              }}
+            >
+              {player.username}
+            </MuiLink>
           </TableCell>
           <TableCell>{player.player_cp}</TableCell>
           <LocalLeaderboardWinRate

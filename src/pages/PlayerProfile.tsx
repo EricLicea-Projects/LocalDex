@@ -27,10 +27,8 @@ const TabPanel = ({ children, value, index }: TabPanelProps) => (
 
 const PlayerProfile = () => {
   const { playerId } = useParams();
-  console.log(playerId);
   if (!playerId) return <Stack>No data</Stack>;
   const { data } = useGetPlayerProfile(playerId);
-  console.log(data);
   const [activeTab, setActiveTab] = useState(0);
 
   if (!data) return <Stack>No Data</Stack>;
