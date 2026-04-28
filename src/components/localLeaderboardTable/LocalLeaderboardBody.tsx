@@ -55,9 +55,7 @@ const LocalLeaderboardBody = ({ playerStats }: Props) => {
           <TableCell>{player.player_cp}</TableCell>
           <LocalLeaderboardWinRate
             winRate={player.win_rate}
-            totalGames={player.total_games}
-            totalLosses={player.total_losses}
-            totalWins={player.total_wins}
+            totalGames={player.games_played}
           />
           <TableCell>
             <Avatar
@@ -84,9 +82,9 @@ const LocalLeaderboardBody = ({ playerStats }: Props) => {
             >
               {player.top_3_champions.map((champion) => (
                 <Avatar
-                  key={champion}
-                  src={getChampionImagePath(champion)}
-                  alt={champion}
+                  key={champion.champion_id}
+                  src={getChampionImagePath(champion.champion_name)}
+                  alt={champion.champion_name}
                 />
               ))}
             </AvatarGroup>

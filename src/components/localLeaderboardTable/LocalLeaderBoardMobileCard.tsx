@@ -48,14 +48,9 @@ const LocalLeaderBoardMobileCard = ({ player, rank }: Props) => (
         />
       </Stack>
       <Box>
-        <Stack direction="row" justifyContent="space-between" mb={0.5}>
-          <Typography variant="body2" fontWeight={600}>
-            Win Rate: {(player.win_rate * 100).toFixed(1)}%
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {player.total_wins}W - {player.total_losses}L
-          </Typography>
-        </Stack>
+        <Typography variant="body2" fontWeight={600} mb={0.5}>
+          Win Rate: {player.win_rate}%
+        </Typography>
         <Box
           sx={{
             height: 8,
@@ -81,8 +76,8 @@ const LocalLeaderBoardMobileCard = ({ player, rank }: Props) => (
         <AvatarGroup max={3}>
           {player.top_3_champions.map((champ) => (
             <Avatar
-              key={champ}
-              src={getChampionImagePath(champ)}
+              key={champ.champion_id}
+              src={getChampionImagePath(champ.champion_name)}
               sx={{ width: 36, height: 36 }}
             />
           ))}

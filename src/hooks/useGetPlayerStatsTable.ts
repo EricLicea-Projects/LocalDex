@@ -3,16 +3,21 @@ import { apiClient } from "../api/client";
 
 const API_ROUTE = "api/localdex/v1/player-stats";
 
+type TopChampion = {
+  champion_id: number;
+  champion_name: string;
+  times_played: number;
+};
+
 export type PlayerStats = {
   player_id: number;
   username: string;
   player_cp: number;
-  total_wins: number;
-  total_losses: number;
-  total_games: number;
+  games_played: number;
   win_rate: number;
+  main_element_id: number;
   main_element: string;
-  top_3_champions: string[];
+  top_3_champions: TopChampion[];
 };
 
 type PlayerStatsTableResponse = PlayerStats[];
