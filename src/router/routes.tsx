@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import AppLayout from "../layout/AppLayout";
 import RecentEventRecap from "../pages/RecentEventRecap";
 import Leaderboard from "../pages/Leaderboard";
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "player-profile/:playerId",
         Component: PlayerProfile,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/" replace />,
       },
     ],
   },

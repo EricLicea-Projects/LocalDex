@@ -19,11 +19,6 @@ const navItems = [
     icon: <Stadium />,
   },
   {
-    label: "Player Profile",
-    to: "/player-profile",
-    icon: <PeopleAlt />,
-  },
-  {
     label: "Leaderboard",
     to: "/leaderboard",
     icon: <PeopleAlt />,
