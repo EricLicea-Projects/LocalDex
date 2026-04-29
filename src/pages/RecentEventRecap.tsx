@@ -16,6 +16,7 @@ import HomepageTile from "../components/dashboardTile/HomepageTile";
 import LatestChampionCard from "../components/dashboardTile/latestChampionCard/LatestChampionCard";
 import ElementalBarShell from "../components/elementalBar/ElementalBarShell";
 import type { ElementalTheme } from "../components/elementalBar/ElementalBarTheme";
+import EventStandingsTable from "../components/eventRecapStandingsTable/EventStandingsTable";
 
 const RecentEventRecap = () => {
   const { data } = useLatestEventStandings();
@@ -65,8 +66,8 @@ const RecentEventRecap = () => {
       p={2}
       width="100%"
       display="flex"
-      flexDirection={{ xs: "column", md: "row" }}
-      alignItems={{ xs: "center", md: "flex-start" }}
+      flexDirection={{ xs: "column", lg: "row" }}
+      alignItems={{ xs: "center", lg: "flex-start" }}
       gap={2}
     >
       <Box width="100%" sx={{ display: { xs: "block", sm: "none" } }}>
@@ -92,18 +93,13 @@ const RecentEventRecap = () => {
       <Stack
         spacing={2}
         sx={{ display: { xs: "none", sm: "flex" } }}
-        direction={{ sm: "row", md: "column" }}
+        direction={{ sm: "row", lg: "column" }}
       >
         {championTile}
         {elementMetaTile}
       </Stack>
-
-      <Grid
-        px={{ sm: 0, md: 2 }}
-        container
-        spacing={{ xs: 0, sm: 0, md: 3 }}
-        alignContent="flex-start"
-      >
+      <EventStandingsTable players={standings} />
+      <Grid container display={{ xs: "block", sm: "none" }}>
         {standings.slice(1).map((player) => (
           <Grid
             size={{ xs: 12, sm: 6, lg: 4 }}
