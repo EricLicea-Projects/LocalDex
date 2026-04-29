@@ -1,8 +1,17 @@
-import { Box, Avatar, Typography, CardContent, Stack } from "@mui/material";
+import {
+  Box,
+  Avatar,
+  Typography,
+  CardContent,
+  Stack,
+  Link as MuiLink,
+} from "@mui/material";
+import { Link as RouterLink } from "react-router";
 import getChampionImagePath from "../../../util/getChampionImagePath";
 
 type Props = {
   day: string;
+  playerId: number;
   winnerName: string;
   glowColor: string;
   textColor: string;
@@ -13,6 +22,7 @@ type Props = {
 
 const ChampionDisplay = ({
   day,
+  playerId,
   winnerName,
   glowColor,
   textColor,
@@ -60,22 +70,29 @@ const ChampionDisplay = ({
         />
       </Stack>
 
-      <Typography
-        variant="overline"
-        fontWeight="bold"
-        fontSize="0.75rem"
-        sx={{ color: textColor }}
-      >
-        {day} Champion
-      </Typography>
-
-      <Typography variant="h4" sx={{ fontWeight: 900, mb: 0.5 }}>
-        {winnerName}
-      </Typography>
-
-      <Typography variant="body2" sx={{ color: textColor }}>
-        {mainElement} {subElement} {champion}
-      </Typography>
+      <Stack alignItems={"center"}>
+        <Typography variant="overline" fontWeight="bold" fontSize="0.75rem">
+          {day} Champion
+        </Typography>
+        <MuiLink
+          component={RouterLink}
+          to={`/player-profile/${playerId}`}
+          noWrap
+          underline="none"
+          sx={{
+            typography: "h4",
+            color: "inherit",
+            textAlign: "left",
+            fontWeight: 900,
+            mb: 0.5,
+          }}
+        >
+          {winnerName}
+        </MuiLink>
+        <Typography variant="body2" sx={{ color: textColor }}>
+          {mainElement} {subElement} {champion}
+        </Typography>
+      </Stack>
     </CardContent>
   );
 };

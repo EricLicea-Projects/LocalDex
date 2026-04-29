@@ -37,6 +37,7 @@ const LatestChampionCard = ({
       <Divider variant="middle" sx={{ borderColor: theme.dividerColor }} />
       <ChampionDisplay
         day={eventDate.day}
+        playerId={eventWinner.player_id}
         winnerName={eventWinner.username}
         glowColor={theme.glow}
         textColor={theme.primary}
