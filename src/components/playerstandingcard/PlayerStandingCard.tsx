@@ -12,9 +12,8 @@ const PlayerStandingCard = ({ player }: { player: Standing }) => {
   return (
     <Card
       sx={{
-        width: "100%",
-        mt: { xs: 2, md: 0 },
-        maxWidth: { xs: 328, sm: 360, md: "100%" },
+        width: 336,
+        mt: 2,
         borderRadius: 4,
         display: "flex",
         position: "relative",

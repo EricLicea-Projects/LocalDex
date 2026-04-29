@@ -99,18 +99,15 @@ const RecentEventRecap = () => {
         {elementMetaTile}
       </Stack>
       <EventStandingsTable players={standings} />
-      <Grid container display={{ xs: "block", sm: "none" }}>
+      <Stack
+        display={{ xs: "flex", sm: "none" }}
+        width="100%"
+        alignItems="center"
+      >
         {standings.slice(1).map((player) => (
-          <Grid
-            size={{ xs: 12, sm: 6, lg: 4 }}
-            key={player.player_id}
-            display="flex"
-            justifyContent="center"
-          >
-            <PlayerStandingCard player={player} />
-          </Grid>
+          <PlayerStandingCard player={player} />
         ))}
-      </Grid>
+      </Stack>
     </Box>
   );
 };
