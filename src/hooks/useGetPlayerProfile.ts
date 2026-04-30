@@ -29,7 +29,7 @@ export type PlayerChampionMastery = {
   win_rate: number;
 };
 
-type PlayerProfileResponse = {
+export type PlayerProfileResponse = {
   player_id: number;
   username: string;
   player_cp: number;
@@ -45,7 +45,7 @@ type PlayerProfileResponse = {
   event_history: PlayerEventHistory[];
 };
 
-const useGetPlayerProfile = (playerId: string) => {
+const useGetPlayerProfile = (playerId?: string) => {
   const [data, setData] = useState<PlayerProfileResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
