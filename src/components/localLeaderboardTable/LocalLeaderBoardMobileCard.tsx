@@ -57,7 +57,7 @@ const LocalLeaderBoardMobileCard = ({ player, rank }: Props) => (
             width: "100%",
             borderRadius: 1,
             background: (theme) => {
-              const winPct = player.win_rate * 100;
+              const winPct = player.win_rate;
               const green = theme.palette.success.main;
               const red = theme.palette.error.main;
               return `linear-gradient(90deg, ${green} 0%, ${green} ${winPct}%, ${red} ${winPct}%, ${red} 100%)`;
