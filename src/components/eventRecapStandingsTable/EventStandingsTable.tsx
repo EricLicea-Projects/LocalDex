@@ -14,8 +14,7 @@ const EventStandingsTable = ({ players }: Props) => {
       elevation={8}
       sx={{
         display: { xs: "none", sm: "flex" },
-        width: { sm: 696, lg: 944 },
-        minWidth: { sm: 696, lg: 872 },
+        width: 696,
         border: "2px double",
         borderColor: "border.muted",
         borderRadius: 3,

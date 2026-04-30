@@ -36,7 +36,7 @@ type MainElementPlayRates = {
   play_rate: number;
 };
 
-type LatestEventStandingsResponse = {
+export type LatestEventStandingsResponse = {
   event: EventSummary;
   standings: Standing[];
   main_element_play_rates: MainElementPlayRates[];
