@@ -3,6 +3,7 @@ import AppLayout from "../layout/AppLayout";
 import RecentEventRecap from "../pages/RecentEventRecap";
 import Leaderboard from "../pages/Leaderboard";
 import PlayerProfile from "../pages/PlayerProfile";
+import MaintenanceMode from "../pages/MaintenanceMode";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "player-profile/:playerId",
         Component: PlayerProfile,
+      },
+      {
+        path: "maintenance",
+        Component: MaintenanceMode,
       },
       {
         path: "*",
