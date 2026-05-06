@@ -1,6 +1,8 @@
 import { Stack } from "@mui/material";
 import type { Standing } from "../../hooks/useLatestEventStandings";
-import EventStandingsTable from "../eventRecapStandingsTable/EventStandingsTable";
+import TableLayout from "../TableLayout";
+import EventStandingsHeader from "../eventRecapStandingsTable/EventStandingsHeader";
+import EventStandingsBody from "../eventRecapStandingsTable/EventStandingsBody";
 
 interface Props {
   championTile: React.ReactNode;
@@ -19,7 +21,10 @@ const EventRecapLayout = ({
         {championTile}
         {elementMetaTile}
       </Stack>
-      <EventStandingsTable players={standings} />
+      <TableLayout>
+        <EventStandingsHeader />
+        <EventStandingsBody players={standings} />
+      </TableLayout>
     </Stack>
   );
 };

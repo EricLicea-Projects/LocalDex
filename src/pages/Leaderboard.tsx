@@ -1,10 +1,12 @@
 import { Box, Stack, Typography } from "@mui/material";
-import LocalLeaderboardTable from "../components/localLeaderboardTable/LocalLeaderboardTable";
 import useGetPlayerStatsTable from "../hooks/useGetPlayerStatsTable";
 import LocalLeaderBoardMobileCard from "../components/localLeaderboardTable/LocalLeaderBoardMobileCard";
 import LoaderOverlay from "../components/LoaderOverlay";
 import HamsterLoader from "../loaders/HamsterLoader";
 import PageContentFade from "../components/PageContentFade";
+import TableLayout from "../components/TableLayout";
+import LocalLeaderboardHeader from "../components/localLeaderboardTable/LocalLeaderboardHeader";
+import LocalLeaderboardBody from "../components/localLeaderboardTable/LocalLeaderboardBody";
 
 const Leaderboard = () => {
   const { data, loading } = useGetPlayerStatsTable();
@@ -23,7 +25,10 @@ const Leaderboard = () => {
                 See how players are performing at local events
               </Typography>
             </Stack>
-            <LocalLeaderboardTable playerStats={data} />
+            <TableLayout>
+              <LocalLeaderboardHeader />
+              <LocalLeaderboardBody playerStats={data} />
+            </TableLayout>
             {data.map((player, rank) => (
               <LocalLeaderBoardMobileCard
                 key={player.player_id}

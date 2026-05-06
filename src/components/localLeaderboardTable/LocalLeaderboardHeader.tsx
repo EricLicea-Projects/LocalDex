@@ -6,7 +6,7 @@ const headerRow = [
   "CP",
   "Win Rate",
   "Main Element",
-  "Most Played Champions",
+  "Top Champions",
 ];
 
 const LocalLeaderboardHeader = () => {

@@ -1,13 +1,10 @@
 import { Paper, Table, TableContainer } from "@mui/material";
-import EventStandingsHeader from "./EventStandingsHeader";
-import type { Standing } from "../../hooks/useLatestEventStandings";
-import EventStandingsBody from "./EventStandingsBody";
 
 type Props = {
-  players: Standing[];
+  children: React.ReactNode;
 };
 
-const EventStandingsTable = ({ players }: Props) => {
+const TableLayout = ({ children }: Props) => {
   return (
     <TableContainer
       component={Paper}
@@ -22,12 +19,9 @@ const EventStandingsTable = ({ players }: Props) => {
         backgroundImage: "none",
       }}
     >
-      <Table stickyHeader>
-        <EventStandingsHeader />
-        <EventStandingsBody players={players} />
-      </Table>
+      <Table stickyHeader>{children}</Table>
     </TableContainer>
   );
 };
 
-export default EventStandingsTable;
+export default TableLayout;
