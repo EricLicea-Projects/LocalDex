@@ -4,6 +4,7 @@ import RecentEventRecap from "../pages/RecentEventRecap";
 import Leaderboard from "../pages/Leaderboard";
 import PlayerProfile from "../pages/PlayerProfile";
 import MaintenanceMode from "../pages/MaintenanceMode";
+import SeasonalStats from "../pages/SeasonalStats";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "leaderboard",
         Component: Leaderboard,
+      },
+      {
+        path: "seasonal-stats",
+        Component: SeasonalStats,
       },
       {
         path: "player-profile/:playerId",

@@ -23,7 +23,7 @@ const LocalLeaderBoardMobileCard = ({ player, rank }: Props) => (
       position: "relative",
       p: 2,
       mb: 2,
-      width: 328,
+      width: 336,
       border: "1px double",
       borderColor: "border.muted",
       borderRadius: 2,

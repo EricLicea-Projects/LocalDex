@@ -6,7 +6,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { Stadium, PeopleAlt } from "@mui/icons-material";
+import { EmojiEvents, Leaderboard, QueryStats } from "@mui/icons-material";
 
 type Props = {
   onNavigate?: () => void;
@@ -16,12 +16,17 @@ const navItems = [
   {
     label: "Locals Recap",
     to: "/",
-    icon: <Stadium />,
+    icon: <EmojiEvents />,
   },
   {
     label: "Leaderboard",
     to: "/leaderboard",
-    icon: <PeopleAlt />,
+    icon: <Leaderboard />,
+  },
+  {
+    label: "Local Stats",
+    to: "/seasonal-stats",
+    icon: <QueryStats />,
   },
 ];
 
