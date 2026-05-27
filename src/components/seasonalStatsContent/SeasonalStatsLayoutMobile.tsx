@@ -23,7 +23,7 @@ const SeasonalStatsLayoutMobile = ({ seasonData }: Props) => {
             width: "100%",
             borderRadius: "0.5rem",
             background:
-              "linear-gradient(145deg, hsl(270, 95%, 8%) 0%, hsl(280, 30%, 3%) 100%)",
+              "linear-gradient(145deg, hsl(250, 65%, 13%) 0%, hsl(320, 75%, 5%) 100%)",
             borderLeft: "4px solid",
             borderLeftColor: "primary.main",
             boxShadow: "0 4px 12px rgba(0,0,0,0.4)",

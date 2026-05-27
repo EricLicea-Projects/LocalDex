@@ -14,7 +14,6 @@ const RecentEventRecap = () => {
       <LoaderOverlay loading={loading}>
         <HamsterLoader />
       </LoaderOverlay>
-
       <PageContentFade loading={loading}>
         {data ? (
           <EventRecapContent data={data} />
