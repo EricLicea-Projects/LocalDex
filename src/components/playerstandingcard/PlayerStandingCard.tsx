@@ -1,4 +1,4 @@
-import { Card, Box, Avatar, Stack } from "@mui/material";
+import { Box, Avatar, Stack } from "@mui/material";
 import getChampionImagePath from "../../util/getChampionImagePath";
 import FloatingPlacementBadge from "./FloatingPlacementBadge";
 import ElementStack from "./ElementStack";
