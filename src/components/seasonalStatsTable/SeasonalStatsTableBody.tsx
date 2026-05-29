@@ -53,7 +53,7 @@ const SeasonalStatsTableBody = ({ champion }: Props) => {
               />
               <MuiLink
                 component={RouterLink}
-                to={`/player-profile/${champion.champion_id}`}
+                to={`/champion-profile/${champion.champion_id}`}
                 underline="none"
                 sx={{
                   typography: "body1",

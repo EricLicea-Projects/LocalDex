@@ -14,7 +14,7 @@ const Stars = () => {
 
 const StyledWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
 

@@ -14,6 +14,7 @@ const NavBar = () => {
       position="relative"
       display="flex"
       sx={{
+        zIndex: (theme) => theme.zIndex.appBar,
         p: "0.5rem",
         height: "4.5rem",
         bgcolor: "background.dark",

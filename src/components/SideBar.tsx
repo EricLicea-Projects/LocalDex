@@ -12,6 +12,10 @@ const SideBar = () => {
       borderColor="border.muted"
       display={{ xs: "none", xl: "flex" }}
       flexShrink={0}
+      sx={{
+        position: "relative",
+        zIndex: (theme) => theme.zIndex.appBar,
+      }}
     >
       <NavigationList />
     </Stack>

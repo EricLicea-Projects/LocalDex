@@ -23,7 +23,7 @@ const SeasonalStatsLayoutCardFooter = ({
           margin: "0 auto",
           mb: 1,
           background:
-            "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(138, 43, 226, 0.5) 50%, rgba(255,255,255,0) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,0) 0%, hsla(271, 76%, 53%, 0.50) 50%, rgba(255,255,255,0) 100%)",
         }}
       />
       <Stack
@@ -39,10 +39,12 @@ const SeasonalStatsLayoutCardFooter = ({
           orientation="vertical"
           flexItem
           sx={{
-            borderColor: "rgba(255,255,255,0.05)",
             mx: 1,
             height: "2rem",
             my: "auto",
+            border: 0,
+            background:
+              "linear-gradient(90deg, rgba(255,255,255,0) 0%, hsla(271, 76%, 53%, 0.50) 50%, rgba(255,255,255,0) 100%)",
           }}
         />
         <SeasonalFooterStack lable="WIN RATE">

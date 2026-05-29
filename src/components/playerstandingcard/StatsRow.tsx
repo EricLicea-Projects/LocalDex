@@ -15,8 +15,7 @@ const StatsRow = ({ wins, losses, stalemates, score, byes }: Props) => {
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
-        py: 1,
-        borderTop: "1px solid ",
+        pb: 1,
       }}
     >
       <Box sx={{ textAlign: "center" }}>
@@ -39,7 +38,11 @@ const StatsRow = ({ wins, losses, stalemates, score, byes }: Props) => {
       <Divider
         orientation="vertical"
         flexItem
-        sx={{ height: 20, my: "auto" }}
+        sx={{
+          height: "1.7rem",
+          borderColor: "hsla(271, 100%, 53%, 0.50)",
+          my: "auto",
+        }}
       />
       <Box sx={{ textAlign: "center" }}>
         <Typography
@@ -62,7 +65,11 @@ const StatsRow = ({ wins, losses, stalemates, score, byes }: Props) => {
       <Divider
         orientation="vertical"
         flexItem
-        sx={{ height: 20, my: "auto" }}
+        sx={{
+          height: "1.7rem",
+          borderColor: "hsla(271, 100%, 53%, 0.50)",
+          my: "auto",
+        }}
       />
       <Box sx={{ textAlign: "center" }}>
         <Typography

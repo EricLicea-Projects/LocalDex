@@ -12,12 +12,12 @@ const StarBackgroundLayout = ({ children }: Props) => {
         minHeight: "100vh",
         width: "100%",
         position: "relative",
-        overflow: "hidden",
+        overflow: "visible",
       }}
     >
       <Box
         sx={{
-          position: "absolute",
+          position: "fixed",
           inset: 0,
           zIndex: 0,
           pointerEvents: "none",

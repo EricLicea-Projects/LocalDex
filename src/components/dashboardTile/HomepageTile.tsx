@@ -16,6 +16,7 @@ const HomepageTile = ({ children, themeElement }: Props) => {
     <Card
       elevation={8}
       sx={{
+        mb: 2,
         borderRadius: 4,
         position: "relative",
         backgroundImage: bgImg,

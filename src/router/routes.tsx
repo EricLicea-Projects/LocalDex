@@ -5,6 +5,7 @@ import Leaderboard from "../pages/Leaderboard";
 import PlayerProfile from "../pages/PlayerProfile";
 import MaintenanceMode from "../pages/MaintenanceMode";
 import SeasonalStats from "../pages/SeasonalStats";
+import ChampionProfile from "../pages/ChampionProfile";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "player-profile/:playerId",
         Component: PlayerProfile,
+      },
+      {
+        path: "champion-profile/:championId",
+        Component: ChampionProfile,
       },
       {
         path: "maintenance",

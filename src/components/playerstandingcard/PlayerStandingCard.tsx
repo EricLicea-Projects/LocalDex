@@ -1,4 +1,4 @@
-import { Card, Box, Avatar } from "@mui/material";
+import { Card, Box, Avatar, Stack } from "@mui/material";
 import getChampionImagePath from "../../util/getChampionImagePath";
 import FloatingPlacementBadge from "./FloatingPlacementBadge";
 import ElementStack from "./ElementStack";
@@ -7,19 +7,21 @@ import StatsRow from "./StatsRow";
 import DesktopPlacementNumber from "./DesktopPlacementNumber";
 
 import type { Standing } from "../../hooks/useLatestEventStandings";
+import { gradientCardSx } from "../../styles/cardStyles";
 
 const PlayerStandingCard = ({ player }: { player: Standing }) => {
   return (
-    <Card
-      sx={{
-        width: 336,
-        mt: 2,
-        borderRadius: 4,
-        display: "flex",
-        position: "relative",
-        flexDirection: "column",
-        overflow: "visible",
-      }}
+    <Stack
+      sx={[
+        gradientCardSx,
+        {
+          width: 336,
+          display: "flex",
+          position: "relative",
+          flexDirection: "column",
+          overflow: "visible",
+        },
+      ]}
     >
       <Box sx={{ display: { xs: "block", md: "none" } }}>
         <FloatingPlacementBadge placement={player.placement} />
@@ -43,6 +45,16 @@ const PlayerStandingCard = ({ player }: { player: Standing }) => {
           championName={player.champion_name}
         />
       </Box>
+      <Box
+        sx={{
+          height: "1px",
+          width: "100%",
+          margin: "0 auto",
+          mb: 1,
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,0) 0%, hsla(271, 76%, 53%, 0.50) 50%, rgba(255,255,255,0) 100%)",
+        }}
+      />
 
       <StatsRow
         wins={player.wins}
@@ -51,7 +63,7 @@ const PlayerStandingCard = ({ player }: { player: Standing }) => {
         score={player.score}
         byes={player.byes}
       />
-    </Card>
+    </Stack>
   );
 };
 

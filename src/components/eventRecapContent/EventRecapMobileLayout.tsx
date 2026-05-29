@@ -40,7 +40,7 @@ const EventRecapMobileLayout = ({
         </Box>
       </Box>
 
-      <Stack width="100%" alignItems="center">
+      <Stack width="100%" alignItems="center" spacing={3}>
         {standings.slice(1).map((player) => (
           <PlayerStandingCard key={player.player_id} player={player} />
         ))}
